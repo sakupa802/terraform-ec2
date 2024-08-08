@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    volumes:
+      - ./terraform:/app/terraform
+      - ./lambda_function:/app/lambda_function
+    working_dir: /app/terraform
