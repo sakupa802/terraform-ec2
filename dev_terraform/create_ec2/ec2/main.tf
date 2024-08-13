@@ -13,20 +13,7 @@ resource "aws_instance" "dev_instance" {
   root_block_device {
     volume_type = var.volume_type
     volume_size = var.volume_size
-    kms_key_id  = "alias/aws/ebs"
+    kms_key_id  = var.kms_key_id
     encrypted   = true
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "echo 'Instance created by ${each.key}'"
-    ]
-
-    connection {
-      type        = "ssh"
-      user        = "ubuntu"
-      private_key = file(var.private_key_path)
-      host        = self.public_ip
-    }
   }
 }

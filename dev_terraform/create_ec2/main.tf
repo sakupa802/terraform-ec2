@@ -27,7 +27,7 @@ module "ec2" {
   instance_tags      = var.user_names
   subnet_id          = var.subnet_id
   security_group_id  = var.security_group_id
-  private_key_path   = var.private_key_path
+  kms_key_id         = var.kms_key_id
 
   depends_on = [module.key_pair]
 }

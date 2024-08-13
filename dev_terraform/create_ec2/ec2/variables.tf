@@ -23,11 +23,10 @@ variable "volume_size" {
   default     = 20
 }
 
-variable "private_key_path" {
-  description = "The path to the private key"
-  type = string
-}
-
 variable "instance_tags" {
   description = "The tags for the EC2 instance"
+}
+
+variable "kms_key_id" {
+  type = string
 }
