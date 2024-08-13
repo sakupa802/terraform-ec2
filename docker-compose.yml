@@ -4,6 +4,7 @@ services:
   backend:
     build: .
     volumes:
-      - ./terraform:/app/terraform
-      - ./lambda_function:/app/lambda_function
-    working_dir: /app/terraform
+      - ./dev_terraform:/app/dev_terraform
+    working_dir: /app/dev_terraform
+    env_file:
+      - .env

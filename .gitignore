@@ -88,3 +88,6 @@ lib/csv/*
 *.tfplan
 *.terraformrc
 .terraform/
+
+config/id_rsa
+config/id_rsa.pub

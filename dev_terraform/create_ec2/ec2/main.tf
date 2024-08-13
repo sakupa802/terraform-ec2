@@ -1,12 +1,13 @@
 resource "aws_instance" "dev_instance" {
-  for_each      = toset(var.instance_user_names)
-  ami           = var.ami
+  for_each = toset(var.instance_tags)
+  ami = data.aws_ami.image.id
   instance_type = var.instance_type
-  key_name = var.key_name
-  vpc_security_group_ids = [aws_security_group.dev_sg.id]
+  key_name = "dev-cle-${each.key}-key"
+  subnet_id = var.subnet_id
+  vpc_security_group_ids = [var.security_group_id]
 
   tags = {
-    Name = "${each.key}-dev-instance"
+    Name = "dev-cle-${each.key}"
   }
 
   root_block_device {

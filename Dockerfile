@@ -14,14 +14,14 @@ RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_V
   unzip terraform.zip -d /usr/local/bin && \
   rm -f terraform.zip
 
-# lambda_functionディレクトリをコンテナにコピー
-COPY lambda_function/ ./lambda_function/
-
 # Terraformファイルをコンテナにコピー
-COPY terraform/ ./terraform/
+COPY dev_terraform/ ./dev_terraform/
+
+COPY config/id_rsa.pub /root/.ssh/id_rsa.pub
+COPY config/id_rsa /root/.ssh/id_rsa
 
 # 作業ディレクトリをTerraformのディレクトリに変更
-WORKDIR /app/terraform
+WORKDIR /app/dev_terraform
 
 # デフォルトのコマンド
 CMD ["sh"]
