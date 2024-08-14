@@ -1,0 +1,21 @@
+- name: setup
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Docker install
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Docker Compose install
+      apt:
+        name: docker-compose
+        state: present
+        update_cache: yes
+
+    - name: Ensure Docker is started
+      service:
+        name: docker
+        state: started
+        enabled: yes
