@@ -18,7 +18,6 @@ terraform {
 
 module "key_pair" {
   source = "./key_pair"
-  public_key_path = var.public_key_path
   key_names = var.user_names
 }
 

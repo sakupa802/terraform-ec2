@@ -91,3 +91,8 @@ lib/csv/*
 
 config/id_rsa
 config/id_rsa.pub
+
+*.pub
+*/ssh/*
+*/.ssh/*
+*/.ssh

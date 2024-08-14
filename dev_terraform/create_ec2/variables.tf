@@ -3,15 +3,9 @@ variable "aws_region" {
   default = "ap-northeast-1"
 }
 
-# instance tagとkey pairの名前に利用するユーザ名
 variable "user_names" {
   type = list(string)
-  default = ["aaa-bbb", "ccc-ddd"]
-}
-
-variable "public_key_path" {
-  description = "The path to the public key"
-  default = "~/.ssh/id_rsa.pub"
+  default = ["hiroki", "cle-ec2", "cle-ec2-2"]
 }
 
 variable "subnet_id" {
