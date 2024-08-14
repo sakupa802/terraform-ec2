@@ -5,7 +5,7 @@ variable "aws_region" {
 
 variable "user_names" {
   type = list(string)
-  default = ["hiroki", "cle-ec2", "cle-ec2-2"]
+  default = ["hiroki"]
 }
 
 variable "subnet_id" {

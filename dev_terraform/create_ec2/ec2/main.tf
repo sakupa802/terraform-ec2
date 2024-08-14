@@ -16,6 +16,12 @@ resource "aws_instance" "dev_instance" {
     kms_key_id  = var.kms_key_id
     encrypted   = true
   }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              apt-get update -y
+              apt-get install -y ansible
+              EOF
 }
 
 resource "aws_eip" "eip" {
